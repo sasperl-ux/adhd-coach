@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: adhd-coach-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: adhd_coach
+      POSTGRES_PASSWORD: adhd_coach_password
+      POSTGRES_DB: adhd_coach
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
